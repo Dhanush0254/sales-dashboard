@@ -81,16 +81,19 @@ http://localhost:3000/dashboard
 sales-dashboard/
 ├── app/
 │   ├── dashboard/
-│   │   └── page.tsx
+│   │   └── page.tsx       # Main Dashboard View (Aggregates all charts)
 │   ├── layout.tsx
 │   ├── page.tsx
 │   └── globals.css
 │
 ├── components/
-│   ├── atoms/
-│   ├── molecules/
-│   ├── organisms/
-│   └── templates/
+│   ├── atoms/             # Basic UI elements (Buttons, Cards)
+│   ├── molecules/         # Simple combinations (YearSelector)
+│   ├── organisms/         # Complex Widgets
+│   │   ├── SalesChart.tsx        # Bar Chart
+│   │   ├── RevenueLineChart.tsx  # Line Chart (New)
+│   │   └── CategoryPieChart.tsx  # Pie Chart (New)
+│   └── templates/         # Page Layouts
 │
 ├── data/
 │   └── salesData.ts
@@ -108,7 +111,6 @@ This project is designed to be easily extended. Possible improvements include:
 
 * Custom sales threshold filters
 * API integration for real-time sales data
-* Multiple chart types (Bar, Line, Pie)
 * Advanced dashboard analytics
 
 ---

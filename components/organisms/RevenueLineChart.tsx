@@ -2,10 +2,10 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-const RevenueLineChart = ({ data }) => {
+const RevenueLineChart = ({ data }: { data: any[] }) => {
   return (
     <div className="w-full h-[400px] bg-white p-4 rounded-xl border border-gray-200 shadow-sm animate-in fade-in zoom-in">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">Revenue Trends</h3>
+      <h3 className="text-lg font-semibold mb-4 text-gray-800">Revenue Trends (Line Chart)</h3>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />

@@ -4,10 +4,10 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recha
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
-const CategoryPieChart = ({ data }) => {
+const CategoryPieChart = ({ data }: { data: any[] }) => {
   return (
     <div className="w-full h-[400px] bg-white p-4 rounded-xl border border-gray-200 shadow-sm animate-in fade-in zoom-in">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">Sales by Category</h3>
+      <h3 className="text-lg font-semibold mb-4 text-gray-800">Sales by Category (Pie Chart)</h3>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie

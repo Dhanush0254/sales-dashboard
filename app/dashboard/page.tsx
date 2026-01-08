@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from 'react';
 
-// CORRECT IMPORTS based on your file structure
-import SalesChart from "@/components/organisms/SalesChart";
-import RevenueLineChart from "@/components/organisms/RevenueLineChart";
-import CategoryPieChart from "@/components/organisms/CategoryPieChart";
+// CORRECTED IMPORTS: Using relative paths to fix "Module not found" on Render
+import SalesChart from "../../components/organisms/SalesChart";
+import RevenueLineChart from "../../components/organisms/RevenueLineChart";
+import CategoryPieChart from "../../components/organisms/CategoryPieChart";
 
 // --- MOCK DATA ---
 const INITIAL_SALES_DATA = [

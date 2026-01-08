@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from 'react';
-import RevenueLineChart from "@/components/RevenueLineChart";
-import CategoryPieChart from "@/components/CategoryPieChart";
-import SalesBarChart from "@/components/SalesBarChart";
 
-// 1. Define Data centrally so we can filter it
+// CORRECT IMPORTS based on your file structure
+import SalesChart from "@/components/organisms/SalesChart";
+import RevenueLineChart from "@/components/organisms/RevenueLineChart";
+import CategoryPieChart from "@/components/organisms/CategoryPieChart";
+
+// --- MOCK DATA ---
 const INITIAL_SALES_DATA = [
   { name: 'Jan', revenue: 4000 },
   { name: 'Feb', revenue: 3000 },
@@ -13,6 +15,11 @@ const INITIAL_SALES_DATA = [
   { name: 'May', revenue: 1890 },
   { name: 'Jun', revenue: 2390 },
   { name: 'Jul', revenue: 3490 },
+  { name: 'Aug', revenue: 4100 },
+  { name: 'Sep', revenue: 3200 },
+  { name: 'Oct', revenue: 5500 },
+  { name: 'Nov', revenue: 6000 },
+  { name: 'Dec', revenue: 7000 },
 ];
 
 const INITIAL_CATEGORY_DATA = [
@@ -23,12 +30,12 @@ const INITIAL_CATEGORY_DATA = [
   { name: 'Sports', value: 150 },
 ];
 
-export default function Home() {
-  // State for Toggle (Which chart to show)
-  const [activeChart, setActiveChart] = useState('bar'); // Options: 'bar', 'line', 'pie'
+export default function DashboardPage() {
+  // State for Toggle
+  const [activeChart, setActiveChart] = useState<string>('bar'); // Options: 'bar', 'line', 'pie'
   
-  // State for Threshold Filter (Filter values below this number)
-  const [filterValue, setFilterValue] = useState(0);
+  // State for Filter
+  const [filterValue, setFilterValue] = useState<number>(0);
 
   // Filter Logic
   const filteredSalesData = INITIAL_SALES_DATA.filter(item => item.revenue >= filterValue);
@@ -43,7 +50,7 @@ export default function Home() {
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             
-            {/* 1. CHART TOGGLE BUTTONS */}
+            {/* 1. TOGGLE BUTTONS */}
             <div className="flex bg-gray-100 p-1 rounded-lg">
               {['bar', 'line', 'pie'].map((chart) => (
                 <button
@@ -55,7 +62,7 @@ export default function Home() {
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
                 >
-                  {chart} Chart
+                  {chart} View
                 </button>
               ))}
             </div>
@@ -76,14 +83,14 @@ export default function Home() {
           </div>
           
           <p className="text-xs text-gray-500 mt-2">
-            *Showing items with value greater than <strong>{filterValue}</strong>
+            *Showing data where value is greater than <strong>{filterValue}</strong>
           </p>
         </div>
 
         {/* CHART DISPLAY AREA */}
         <div className="w-full">
           {activeChart === 'bar' && (
-            <SalesBarChart data={filteredSalesData} />
+            <SalesChart data={filteredSalesData} />
           )}
           {activeChart === 'line' && (
             <RevenueLineChart data={filteredSalesData} />

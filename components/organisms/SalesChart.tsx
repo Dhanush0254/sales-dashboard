@@ -2,10 +2,10 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const SalesBarChart = ({ data }) => {
+const SalesChart = ({ data }: { data: any[] }) => {
   return (
     <div className="w-full h-[400px] bg-white p-4 rounded-xl border border-gray-200 shadow-sm animate-in fade-in zoom-in">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">Monthly Sales (Bar)</h3>
+      <h3 className="text-lg font-semibold mb-4 text-gray-800">Monthly Revenue (Bar Chart)</h3>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -20,4 +20,4 @@ const SalesBarChart = ({ data }) => {
   );
 };
 
-export default SalesBarChart;
+export default SalesChart;
